@@ -31,7 +31,7 @@ def loop(recipe: str) -> dict:
     nn_recipe = get_nn_recipe(experiment_recipe)
 
     data['nn_recipe'] = nn_recipe
-    #data['nn_before_params'] = jsons.nn_params(nn_recipe)
+    # data['nn_before_params'] = jsons.nn_params(nn_recipe)
 
     nn = network.NeuralNetwork3L.from_dict(nn_recipe)
 
@@ -65,7 +65,10 @@ def run_loop():
     experiments_path = 'experiment_versions/'
     experiment_versions = [f for
                            f in listdir(experiments_path)
-                           if isfile(join(experiments_path, f))]
+                           if isfile(join(experiments_path, f))
+                           and f[0] != "."]
+
+    print(experiment_versions)
 
     for file in experiment_versions:
         # TODO change this loop: it should be regulated by eperiment parameter
