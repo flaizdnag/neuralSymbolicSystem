@@ -27,8 +27,8 @@ def post_json_file_and_save_to_file(url: str, path_from: str, path_to: str):
 
 
 # def get(f, phrase, url='http://207.154.220.61:10099/api/'):
-# def get(f, phrase, url='http://64.225.103.216:10100/api/'):
-def get(f, phrase, url='http://127.0.0.1:10100/api/'):
+# def get(f, phrase, url='http://127.0.0.1:10100/api/'):
+def get(f, phrase, url='http://64.225.103.216:10100/api/'):
     """
     Opens url using Request library
 

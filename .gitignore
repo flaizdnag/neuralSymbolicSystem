@@ -1,2 +1,5 @@
 dictionary.txt
 nsJsonsAnalyser-exe
+nn_lp_jsons_main/__pycache__/
+src/__pycache__/
+src/neural_network/__pycache__/
