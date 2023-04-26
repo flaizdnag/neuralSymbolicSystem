@@ -3,7 +3,7 @@ from typing import List, Iterable
 import numpy as np
 import src.neural_network.activations
 import src.toolbox as tb
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 def mean_squarred_error(y, output):
@@ -256,7 +256,6 @@ class NeuralNetwork3L:
             amin=self.amin,
             io_pairs=self.get_io_pairs())
 
-    '''
     def draw(self, fig=None, ax=None, save: str = '',
              left: float = .1, right: float = .9, bottom: float = .1, top: float = .9):
         """
@@ -276,7 +275,7 @@ class NeuralNetwork3L:
         """
 
         if fig is None:
-            fig = plt.figure(figsize=(12, 12))
+            fig = plt.figure(figsize=(12.0, 12.0))
         if ax is None:
             ax = fig.gca()
             ax.axis('off')
@@ -318,7 +317,6 @@ class NeuralNetwork3L:
     def plot_errors(self):
         plt.plot(self.errors)
         plt.show()
-    '''
 
     def calculate_input(self, x: np.ndarray = None):
         pass

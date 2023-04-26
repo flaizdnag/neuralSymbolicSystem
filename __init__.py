@@ -47,6 +47,7 @@ def loop(recipe: str) -> dict:
     )
 
     data['nn_after'] = nn._pack()
+    figure = nn.draw()
 
     data['errors'] = nn.errors
 
@@ -55,7 +56,7 @@ def loop(recipe: str) -> dict:
     data['lp_after'] = nn.to_lp()
     data['lp_after_params'] = jsons.lp_params(experiment_recipe)
 
-    return data
+    return (data, figure)
 
 
 def run_loop():
@@ -68,15 +69,17 @@ def run_loop():
                            if isfile(join(experiments_path, f))
                            and f[0] != "."]
 
-    print(experiment_versions)
+    print(f"experiment versions: {experiment_versions}")
 
     for file in experiment_versions:
         # TODO change this loop: it should be regulated by eperiment parameter
         file_name_no_ext = file.split('.')[0]
         for i in range(10):
             print(f"example {i+1} from experiment {file_name_no_ext}")
-            result = loop(join(experiments_path, file))
+            (result, figure) = loop(join(experiments_path, file))
             json_name = f"results/{file_name_no_ext}_{str(i).zfill(5)}.json"
+            figure_name = f"results/{file_name_no_ext}_{str(i).zfill(5)}.png"
+            figure.savefig(figure_name)
             with open(json_name, 'w') as json_file:
                 json.dump(result, json_file)
 
