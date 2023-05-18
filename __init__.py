@@ -3,6 +3,7 @@ from os import listdir
 import numpy as np
 from os.path import isfile, join
 import src
+import matplotlib.pyplot as plt
 
 import src.neural_network.network as network
 import nn_lp_jsons_main.jsons as jsons
@@ -80,6 +81,7 @@ def run_loop():
             json_name = f"results/{file_name_no_ext}_{str(i).zfill(5)}.json"
             figure_name = f"results/{file_name_no_ext}_{str(i).zfill(5)}.png"
             figure.savefig(figure_name)
+            plt.close(figure_name)
             with open(json_name, 'w') as json_file:
                 json.dump(result, json_file)
 
