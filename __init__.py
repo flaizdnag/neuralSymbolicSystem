@@ -84,6 +84,7 @@ def run_loop():
             plt.close(figure_name)
             with open(json_name, 'w') as json_file:
                 json.dump(result, json_file)
+            plt.close()
 
 
 if __name__ == '__main__':
